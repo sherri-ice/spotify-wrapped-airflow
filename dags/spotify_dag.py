@@ -19,10 +19,8 @@ def spotify_dag():
     client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
     redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI")
 
-    spotify_client: Spotify = None
-
     @task
-    def setup_spotify_client():
+    def get_spotify_user():
         spotify_client = Spotify(
             client_id=client_id,
             client_secret=client_secret,
@@ -30,12 +28,9 @@ def spotify_dag():
             scope="playlist-read-private",
             use_redis=True
         )
-
-    @task
-    def get_spotify_user():
         print(spotify_client.get_current_user())
 
-    get_spotify_user() >> get_spotify_user()
+    get_spotify_user()
 
 
 spotify_dag()
