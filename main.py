@@ -1,7 +1,8 @@
 import os
 
-from spotify_utils import Spotify
 from dotenv import load_dotenv
+
+from spotify_utils import Spotify
 
 load_dotenv()
 

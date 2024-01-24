@@ -1,5 +1,4 @@
 import os
-from typing import Union
 
 import redis
 import spotipy
