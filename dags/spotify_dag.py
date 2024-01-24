@@ -26,7 +26,7 @@ def spotify_dag():
             client_secret=client_secret,
             redirect_uri=redirect_uri,
             use_redis=True
-        )
+        ).spotify_client
         print(spotify_client.current_user())
 
     get_spotify_user()
