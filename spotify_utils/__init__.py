@@ -6,10 +6,23 @@ import spotipy
 from spotipy.cache_handler import RedisCacheHandler
 from spotipy.oauth2 import SpotifyOAuth
 
+scopes = [
+    "user-read-recently-played",
+    "playlist-read-private"
+]
+
 
 class Spotify:
-    def __init__(self, client_id: str, client_secret: str, redirect_uri: str, scope: Union[str, list[str]],
-                 use_redis: bool):
+    def __init__(
+            self,
+            client_id: str,
+            client_secret: str,
+            redirect_uri: str,
+            scope=None,
+            use_redis: bool = False
+    ):
+        if scope is None:
+            scope = scopes
         kwargs = {}
         if use_redis:
             host = os.getenv("REDIS_HOST")
@@ -28,5 +41,8 @@ class Spotify:
         )
         self.__spotify_client__ = spotipy.Spotify(auth_manager=auth_manager)
 
-    def get_current_user(self):
-        return self.__spotify_client__.current_user()
+    @property
+    def spotify_client(self):
+        return self.__spotify_client__
+
+

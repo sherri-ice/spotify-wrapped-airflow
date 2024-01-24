@@ -25,10 +25,9 @@ def spotify_dag():
             client_id=client_id,
             client_secret=client_secret,
             redirect_uri=redirect_uri,
-            scope="playlist-read-private",
             use_redis=True
         )
-        print(spotify_client.get_current_user())
+        print(spotify_client.current_user())
 
     get_spotify_user()
 
