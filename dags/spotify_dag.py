@@ -6,6 +6,7 @@ from dotenv import load_dotenv, find_dotenv
 
 from spotify_utils import Spotify
 
+
 default_args = {
     'owner': 'sherri-ice'
 }

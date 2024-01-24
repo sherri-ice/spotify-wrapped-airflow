@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 from spotify_utils import Spotify
 
+
 load_dotenv()
 
 client_id = os.getenv("SPOTIPY_CLIENT_ID")
