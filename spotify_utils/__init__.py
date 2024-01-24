@@ -1,10 +1,10 @@
 import os
-from typing import Optional, Union
+from typing import Union
 
-import spotipy
-from spotipy.oauth2 import SpotifyOAuth
-from spotipy.cache_handler import RedisCacheHandler
 import redis
+import spotipy
+from spotipy.cache_handler import RedisCacheHandler
+from spotipy.oauth2 import SpotifyOAuth
 
 
 class Spotify:
